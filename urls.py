@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Example:
-    (r'^~56k/ctsresolver/info', 'ctsresolver.cts.views.list_providers'),
+    (r'^~56k/ctsresolver/info', 'ctsresolver.resolv.views.list_providers'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     (r'^~56k/ctsresolver/admin/doc/', include('django.contrib.admindocs.urls')),

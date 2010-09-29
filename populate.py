@@ -1,4 +1,4 @@
-from ctsresolver.cts.models import CTS_provider
+from ctsresolver.resolv.models import CTS_provider
 
 def populate():
 	path = "/Users/56k/phd/code/ctsresolver/data/service_providers.dat"
@@ -11,6 +11,8 @@ def populate():
 			print ws
 			
 def list():
+	if(len(CTS_provider.objects.all())==0):
+		populate()
 	o = [str(o) for o in CTS_provider.objects.all()]
 	return o
 	
