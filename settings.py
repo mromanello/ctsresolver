@@ -1,6 +1,7 @@
 # Django settings for ctsresolver project.
 
 DEBUG = True
+LOGGING_OUTPUT_ENABLED=True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (

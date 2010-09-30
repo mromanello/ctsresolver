@@ -1,12 +1,12 @@
 from django.conf.urls.defaults import *
-
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
+    # List all the CTS webservices that are being harvested
     (r'^~56k/ctsresolver/info', 'ctsresolver.resolv.views.list_providers'),
+    # Ping a CTS repository
+    (r'^~56k/ctsresolver/ping/(.*?)$', 'ctsresolver.resolv.views.ping'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     (r'^~56k/ctsresolver/admin/doc/', include('django.contrib.admindocs.urls')),
