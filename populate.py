@@ -9,7 +9,7 @@ def populate():
 			ws = CTS_provider(name=info[0],url=info[1],added_by=info[2])
 			ws.save()
 			print ws
-			
+
 def list():
 	if(len(CTS_provider.objects.all())==0):
 		populate()

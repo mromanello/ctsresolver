@@ -11,7 +11,7 @@ logger = logging.getLogger('CTS')
 def normalize(inp_string):
 	"""docstring for normalize"""
 	return re.sub(r'\s\s+',"",inp_string)
-	
+
 class CTS_URN():
 	"""Object representing a CTS URN"""
 	def __init__(self, urn_sring):
@@ -19,7 +19,7 @@ class CTS_URN():
 		
 	def __str__(self):
 			return self.urn
-		
+	
 
 class TextInventory():
 	"""
@@ -29,7 +29,6 @@ class TextInventory():
 	_get_capab_req = "CTS?request=GetCapabilities"
 	_cts_ns = "{http://chs.harvard.edu/xmlns/cts3/ti}"
 	_xml_ns="{http://www.w3.org/XML/1998/namespace}"
-	
 	def __init__(self):
 		## the TI version
 		self.version = None
@@ -63,6 +62,7 @@ class TextInventory():
 			self.editions[obj.id]=obj
 			logger.debug("The edition %s (for Work %s) was added to the TI"%(obj.id,obj.work))
 		return
+	
 	def count(self,type):
 		if(type=="tg"):
 			return len(self.textgroups)
@@ -70,10 +70,11 @@ class TextInventory():
 			return len(self.works)
 		elif(type=="ed"):
 			return len(self.editions)
-		
+	
 	def textgroups(self):
 		return self.content
 	
+
 class TextGroup():
 	def __init__(self,id=None,name="",works={}):
 		self.id = id
@@ -81,26 +82,26 @@ class TextGroup():
 		self.works = works
 		self.xml = ""
 		return
-		
+	
 	def get_name(self, lang=None):
 		return self.names[lang]
-		
+	
 	def set_id(self,id):
 		self.id = id
-		
+	
 	def set_name(self,lang,name):
 		self.names[lang]=name
-		
+	
 	def add(self,w):
 		self.works[w.id]=w
-		
+	
 	def load_from_XML(self):
 		# TODO implement
 		pass
-		
+	
 class Collection():
 	pass
-		
+	
 class Work():
 	def __init__(self,id="",lang="",title="",tg=""):
 		self.textgroup=tg
